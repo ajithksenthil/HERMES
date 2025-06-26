@@ -2,18 +2,20 @@
   <img src="figs/hermes.png" width="50%">
 </div>
 
-<div align="center">
+
 # HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/video-classification-on-breakfast)](https://paperswithcode.com/sota/video-classification-on-breakfast?p=bridging-episodes-and-semantics-a-novel)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/video-classification-on-coin-1)](https://paperswithcode.com/sota/video-classification-on-coin-1?p=bridging-episodes-and-semantics-a-novel)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/zero-shot-long-video-global-model-question)](https://paperswithcode.com/sota/zero-shot-long-video-global-model-question?p=bridging-episodes-and-semantics-a-novel)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/zero-shot-long-video-breakpoint-mode-question)](https://paperswithcode.com/sota/zero-shot-long-video-breakpoint-mode-question?p=bridging-episodes-and-semantics-a-novel)
+
 ### [Project Page](https://joslefaure.github.io/assets/html/hermes.html) | [Paper](https://arxiv.org/abs/2408.17443)
-</div>
+
 
 ## :fire: News
-* **[2025.06.26]** Our paper **HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics** has been accepted by *ICCV'2025* 🚀.
-* **[2024.08.24]** :keyboard: Our short paper **BREASE: Bridging Episodes and Semantics, A Novel Framework for Long-Form Video Understanding** has been accepted by the EVAL-FoMo workshop at *ECCV'24*.
+* **[2025.06.26]** Our paper **HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics** has been accepted by ***ICCV'2025*** 🚀.
+* **[2024.08.24]** :keyboard: Our short paper **BREASE: Bridging Episodes and Semantics, A Novel Framework for Long-Form Video Understanding** has been accepted by the EVAL-FoMo workshop at ***ECCV'24***.
 
 <p align="center">
 <img src="figs/hermes_banner.png" alt="teaser" width="100%">
