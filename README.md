@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="figs/hermes.png" width="50%">
+  <img src="figs/hermes.png" width="40%">
 </div>
 
 
@@ -125,5 +125,5 @@ We thank the authors of the following repositories for open-sourcing their code.
 - [LAVIS](https://github.com/salesforce/LAVIS)
 - [MA-LMM](https://github.com/boheumd/MA-LMM)
 
-
+*Icon made by Freepik from www.flaticon.com*
 
