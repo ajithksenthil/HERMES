@@ -1,29 +1,38 @@
 <div align="center">
-  <img src="figs/hermes_video.webp" width="50%">
+  <img src="figs/hermes.png" width="50%">
 </div>
 
+<div align="center">
 # HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/video-classification-on-breakfast)](https://paperswithcode.com/sota/video-classification-on-breakfast?p=bridging-episodes-and-semantics-a-novel)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/video-classification-on-coin-1)](https://paperswithcode.com/sota/video-classification-on-coin-1?p=bridging-episodes-and-semantics-a-novel)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/zero-shot-long-video-global-model-question)](https://paperswithcode.com/sota/zero-shot-long-video-global-model-question?p=bridging-episodes-and-semantics-a-novel)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bridging-episodes-and-semantics-a-novel/zero-shot-long-video-breakpoint-mode-question)](https://paperswithcode.com/sota/zero-shot-long-video-breakpoint-mode-question?p=bridging-episodes-and-semantics-a-novel)
 ### [Project Page](https://joslefaure.github.io/assets/html/hermes.html) | [Paper](https://arxiv.org/abs/2408.17443)
-This is the official repository of our papers: 
-- "**HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics**"
-- "**BREASE: Bridging Episodes and Semantics, A Novel Framework for Long-Form Video Understanding**" (ECCVW'24).
+</div>
+
+## :fire: News
+* **[2025.06.26]** Our paper **HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics** has been accepted by *ICCV'2025* 🚀.
+* **[2024.08.24]** :keyboard: Our short paper **BREASE: Bridging Episodes and Semantics, A Novel Framework for Long-Form Video Understanding** has been accepted by the EVAL-FoMo workshop at *ECCV'24*.
 
 <p align="center">
-<img src="figs/teaser_7_2.drawio.png" alt="teaser" width="100%">
+<img src="figs/hermes_banner.png" alt="teaser" width="100%">
 </p>
 
 
 ## Model Overview
 <p align="center">
-<img src="figs/m_and_e_updated.drawio_1.jpg" alt="model" width="90%">
+<img src="figs/hermes_method.png" alt="model" width="90%">
 </p>
 
-## :fire: News
-* **[2024.08.24]** :keyboard: Our short paper *"BREASE: Bridging Episodes and Semantics, A Novel Framework for Long-Form Video Understanding"* has been accepted by the EVAL-FoMo workshop at ECCV'24.
+## Results
+<img src="figs/results_main.png" alt="main results" width="90%">
+
+### Plug-and-Play Experiments
+<img src="figs/plug_and_play.png" alt="plug and play" width="90%">
+
+
+
 
 ## Requirements
 
@@ -40,6 +49,8 @@ pip install -e .
 - [COIN](https://coin-dataset.github.io/)
 - [MovieChat-1k](https://github.com/rese1f/MovieChat)
 
+**Additionally, our modules can be plugged into other VLMs for faster inference and improved memory management.**
+
 ### Prepare MovieChat-1k
 1. Download the train data (if you want to finetune HERMES) from [here](https://huggingface.co/datasets/Enxin/MovieChat-1K_train) and the test data from [here](https://huggingface.co/datasets/Enxin/MovieChat-1K-test/tree/main)
    
@@ -53,11 +64,6 @@ pip install -e .
                 ├── frame000001.jpg
                 ├── ...
 ```
-
-
-
-
-
 
 ## Running
 
@@ -100,9 +106,9 @@ bash run_scripts/{dataset}/train.sh
 If you find our code or our paper useful for your research, please **[★star]** this repo and **[cite]** the following paper:
 
 ```latex
-@misc{faure2024bridgingepisodessemanticsnovel,
-      title={Bridging Episodes and Semantics: A Novel Framework for Long-Form Video Understanding}, 
-      author={Gueter Josmy Faure and Jia-Fong Yeh and Min-Hung Chen and Hung-Ting Su and Winston H. Hsu and Shang-Hong Lai},
+@misc{faure2024hermestemporalcoherentlongformunderstanding,
+      title={HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics}, 
+      author={Gueter Josmy Faure and Jia-Fong Yeh and Min-Hung Chen and Hung-Ting Su and Shang-Hong Lai and Winston H. Hsu},
       year={2024},
       eprint={2408.17443},
       archivePrefix={arXiv},
