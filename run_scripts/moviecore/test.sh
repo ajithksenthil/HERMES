@@ -3,9 +3,7 @@
 # MovieCORE Test Script for HERMES
 # Usage: bash run_scripts/moviecore/test.sh [checkpoint_path]
 
-export CUDA_VISIBLE_DEVICES=5
-
-checkpoint_path=/home/phd/12/josmyfaure/vlms/HERMES/checkpoint_best.pth
+checkpoint_path=$1
 
 torchrun --nproc_per_node=1 \
     --master_port=34659 \
