@@ -41,6 +41,7 @@ pip install -e .
 ```
 
 ## Supported Datasets
+- [MovieCORE](https://huggingface.co/datasets/MovieCORE/MovieCORE)
 - [LVU](https://github.com/chaoyuaw/lvu)
 - [Breakfast](https://serre-lab.clps.brown.edu/resource/breakfast-actions-dataset/)
 - [COIN](https://coin-dataset.github.io/)
@@ -48,13 +49,13 @@ pip install -e .
 
 **Additionally, our modules can be plugged into other VLMs for faster inference and improved memory management.**
 
-### Prepare MovieChat-1k
+### Prepare MovieCORE and/or MovieChat-1k
 1. Download the train data (if you want to finetune HERMES) from [here](https://huggingface.co/datasets/Enxin/MovieChat-1K_train) and the test data from [here](https://huggingface.co/datasets/Enxin/MovieChat-1K-test/tree/main)
    
 2. Extract the frames at 10FPS and organize it as follows:
 ```
 ├── data
-    └── moviechat
+    └── moviecore
         ├── annotation
         ├── frames
             └── {video_id}
@@ -62,35 +63,32 @@ pip install -e .
                 ├── ...
 ```
 
-## Running
+### Pretrained Checkpoints
 
-### Download Pre-trained LLM
-We use Vicuna-v1.1 (we report results using the 7B model only) as our pre-trained LLM weights, you can download from this [link](https://github.com/lm-sys/FastChat/blob/main/docs/vicuna_weights_version.md) and arrange in this format.
+| Dataset | Download Link |
+|---------|---------------|
+| MovieCORE | [GDrive](https://drive.google.com/file/d/16GWbIQ5CpD6un_LJYn04WYf9D0cojWNi/view?usp=sharing) |
+| MovieChat-1k | [GDrive](link) (Coming soon) |
+| LVU | [GDrive](link) (Coming soon) |
+| Breakfast | [GDrive](link) (Coming soon) |
+| COIN | [GDrive](link) (Coming soon) |
 
-I prefer my `bert-base-uncased` locally, therefore I added it here too. Download it from [there](https://huggingface.co/google-bert/bert-base-uncased).
-   ```
-   ├── llm
-        ├── vicuna-7b
-        ├── vicuna-13b
-        ├── bert-based-uncased
-   ```
+
+
 ### Inference
-We inference the model on 4 V100 GPUs (32GB). 
+We inference the model on 4 V100 GPUs (32GB). One GPU will do BTW.
 
 First add your openai API to the environment variable `export OPENAI_API_KEY='sk-*****` (only for moviechat dataset), as we use GPT3.5 for scoring. For the other datasets, we report top-1 accuracy.
 
 
 ```bash
 # Zero-shot
-bash run_scripts/moviechat/test.sh
+bash run_scripts/moviecore/test.sh
 
 # Fully-supervised
-bash run_scripts/moviechat/test.sh path/to/your/model.pth
+bash run_scripts/moviecore/test.sh path/to/your/model.pth
 ```
 Same for the other datasets. All the scripts are included in `run_scripts`.
-
-### Pretrained Checkpoints
-Coming Soon
 
 ### Train
 We train the model on 8 V100 GPUs (32GB).
