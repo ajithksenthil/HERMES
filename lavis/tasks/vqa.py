@@ -144,6 +144,35 @@ class VQATask(BaseTask):
                     break
         return res_out
 
+    def _prepare_moviecore_results(self, results, dataset):
+        """
+        Prepare the results for moviecore dataset.
+        """
+        gt = dataset.annotation
+        gt = dict(sorted(gt.items(), key=lambda item: item[0].split("_")[0]))
+        results = sorted(results, key=lambda x: x["question_id"].split("_")[0])
+        res_out = defaultdict(list)
+
+        for sample in gt:
+            for i in range(len(results)):
+                if results[i]["question_id"] == sample:
+                    video_id = sample.split("_")[0] + ".mp4"
+                    question = gt[sample]["question"]
+                    answer = gt[sample]["answer"]
+                    pred = results[i]["answer"][0].replace("</s>", "")
+                    classification = gt[sample].get("classification", "")
+
+                    res_out[video_id].append(
+                        {
+                            "question": question, 
+                            "answer": answer, 
+                            "pred": pred,
+                            "classification": classification
+                        }
+                    )
+                    break
+        return res_out
+
     def after_evaluation(self, val_result, split_name, epoch, dataset, **kwargs):
         result_file = self.save_result(
             val_result,
@@ -186,6 +215,33 @@ class VQATask(BaseTask):
             )
             result["agg_metrics"] = result["accuracy"]
             
+            return result
+
+        if "moviecore" in dataset_name:
+            from lavis.tasks.moviecore_eval import main
+
+            formatted_results = self._prepare_moviecore_results(
+                json.load(open(result_file, "r")), dataset
+            )
+            result_dir = registry.get_path("result_dir")
+            filename = f"{split}_epoch{epoch}_moviecore_formatted.json"
+
+            formatted_file = os.path.join(result_dir, filename)
+            json.dump(formatted_results, open(formatted_file, "w"))
+            logging.info(f"MovieCORE formatted results saved to {formatted_file}")
+            result = main(formatted_results)
+            
+            # Extract key metrics from MovieCORE evaluation
+            overall_avg = result.get("overall", {}).get("average_across_dimensions", 0)
+            print(f"MovieCORE Overall Average: {overall_avg:.2f}")
+            
+            # Print by-classification results
+            if "by_classification" in result:
+                for classification, scores in result["by_classification"].items():
+                    avg_score = scores.get("average_across_dimensions", 0)
+                    print(f"{classification}: {avg_score:.2f}")
+            
+            result["agg_metrics"] = overall_avg
             return result
 
         annotation = dataset.annotation
